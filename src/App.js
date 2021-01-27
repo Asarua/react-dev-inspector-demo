@@ -1,10 +1,13 @@
-import logo from './logo.svg';
 import { Inspector } from 'react-dev-inspector'
-import './App.css';
+import { Fragment } from 'react'
+
+const Wrapper = process.env.NODE_ENV === 'production'
+  ? Fragment
+  : Inspector
 
 function App() {
   return (
-    <Inspector
+    <Wrapper
       keys={['shift', 'c']}
     >
       <div>
@@ -13,8 +16,8 @@ function App() {
       <div>
         div
       </div>
-    </Inspector>
+    </Wrapper>
   );
 }
 
-export default App;
+export default App
